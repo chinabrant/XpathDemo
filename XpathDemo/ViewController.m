@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import <TFHpple.h>
+#import "DBManager.h"
 
 @interface ViewController ()
+
+@property (nonatomic) dispatch_queue_t queue;
 
 @end
 
@@ -17,6 +21,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        for (int i = 53; i < 54; i++) {
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gs5000.cn/gs/shenhua/%d.html", i]]];
+            dispatch_async(self.queue, ^{
+                TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
+                NSArray *eles = [hpple searchWithXPathQuery:@"//div[@class='place']/a[2] | //h2 | //div[@class='content']/table[1]/tr/td"];
+                if (eles.count == 3) {
+                    NSString *category, *title, *content;
+                    category = ((TFHppleElement *) eles[0]).content;
+                    title = ((TFHppleElement *) eles[1]).content;
+                    content = ((TFHppleElement *) eles[2]).content;
+                    for (TFHppleElement *ele in eles) {
+                        NSLog(@"title: %@", ele.content);
+                    }
+                    
+                    [[DBManager shareInstance] insert:category title:title content:content];
+                }
+            });
+        }
+        
+        
+    });
 }
 
 
@@ -25,5 +54,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (dispatch_queue_t)queue {
+    if (!_queue) {
+        _queue = dispatch_queue_create("xxx", NULL);
+    }
+    
+    return _queue;
+}
 
 @end

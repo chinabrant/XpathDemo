@@ -13,9 +13,14 @@
 		940FE4831E6EBB6900FCE12D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940FE4811E6EBB6900FCE12D /* Main.storyboard */; };
 		940FE4851E6EBB6900FCE12D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940FE4841E6EBB6900FCE12D /* Assets.xcassets */; };
 		940FE4881E6EBB6900FCE12D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940FE4861E6EBB6900FCE12D /* LaunchScreen.storyboard */; };
+		94F10A171E6FCF6400D93DA1 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F10A161E6FCF6400D93DA1 /* DBManager.m */; };
+		C58E80C54F21083877489E4A /* libPods-XpathDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166CE0668E0EFF0617187433 /* libPods-XpathDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A7FC515498EA75EA56ACECA /* Pods-XpathDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XpathDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XpathDemo/Pods-XpathDemo.release.xcconfig"; sourceTree = "<group>"; };
+		166CE0668E0EFF0617187433 /* libPods-XpathDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XpathDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B9C8F16A8F37F340E7AC2FA /* Pods-XpathDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XpathDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XpathDemo/Pods-XpathDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		940FE4751E6EBB6900FCE12D /* XpathDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XpathDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		940FE4791E6EBB6900FCE12D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		940FE47B1E6EBB6900FCE12D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +31,8 @@
 		940FE4841E6EBB6900FCE12D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		940FE4871E6EBB6900FCE12D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		940FE4891E6EBB6900FCE12D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94F10A151E6FCF6300D93DA1 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		94F10A161E6FCF6400D93DA1 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +40,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58E80C54F21083877489E4A /* libPods-XpathDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1464540A43D9CE28F1958393 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				166CE0668E0EFF0617187433 /* libPods-XpathDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6D82138300155B52CC03C0AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B9C8F16A8F37F340E7AC2FA /* Pods-XpathDemo.debug.xcconfig */,
+				0A7FC515498EA75EA56ACECA /* Pods-XpathDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		940FE46C1E6EBB6900FCE12D = {
 			isa = PBXGroup;
 			children = (
 				940FE4771E6EBB6900FCE12D /* XpathDemo */,
 				940FE4761E6EBB6900FCE12D /* Products */,
+				6D82138300155B52CC03C0AA /* Pods */,
+				1464540A43D9CE28F1958393 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +94,8 @@
 				940FE4861E6EBB6900FCE12D /* LaunchScreen.storyboard */,
 				940FE4891E6EBB6900FCE12D /* Info.plist */,
 				940FE4781E6EBB6900FCE12D /* Supporting Files */,
+				94F10A151E6FCF6300D93DA1 /* DBManager.h */,
+				94F10A161E6FCF6400D93DA1 /* DBManager.m */,
 			);
 			path = XpathDemo;
 			sourceTree = "<group>";
@@ -86,9 +115,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 940FE48C1E6EBB6900FCE12D /* Build configuration list for PBXNativeTarget "XpathDemo" */;
 			buildPhases = (
+				0795B3512E0D800CD6DA26E8 /* [CP] Check Pods Manifest.lock */,
 				940FE4711E6EBB6900FCE12D /* Sources */,
 				940FE4721E6EBB6900FCE12D /* Frameworks */,
 				940FE4731E6EBB6900FCE12D /* Resources */,
+				6173215078A894857493DB40 /* [CP] Embed Pods Frameworks */,
+				BDBB05258C63D6F9B810C663 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,6 +142,7 @@
 				TargetAttributes = {
 					940FE4741E6EBB6900FCE12D = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = KYPLW3N5HG;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -145,6 +178,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0795B3512E0D800CD6DA26E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6173215078A894857493DB40 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XpathDemo/Pods-XpathDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDBB05258C63D6F9B810C663 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XpathDemo/Pods-XpathDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		940FE4711E6EBB6900FCE12D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -153,6 +234,7 @@
 				940FE4801E6EBB6900FCE12D /* ViewController.m in Sources */,
 				940FE47D1E6EBB6900FCE12D /* AppDelegate.m in Sources */,
 				940FE47A1E6EBB6900FCE12D /* main.m in Sources */,
+				94F10A171E6FCF6400D93DA1 /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,8 +350,10 @@
 		};
 		940FE48D1E6EBB6900FCE12D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B9C8F16A8F37F340E7AC2FA /* Pods-XpathDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KYPLW3N5HG;
 				INFOPLIST_FILE = XpathDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brant.XpathDemo;
@@ -279,8 +363,10 @@
 		};
 		940FE48E1E6EBB6900FCE12D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A7FC515498EA75EA56ACECA /* Pods-XpathDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KYPLW3N5HG;
 				INFOPLIST_FILE = XpathDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brant.XpathDemo;
@@ -307,6 +393,7 @@
 				940FE48E1E6EBB6900FCE12D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
