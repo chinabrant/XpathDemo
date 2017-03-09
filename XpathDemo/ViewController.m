@@ -22,14 +22,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // chengyu minjian  shenhua  huangdi  zhanzheng  wenhuagushi  lishirenwu mingren  yeshi  dangshi
     
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        for (int i = 5; i < 24573; i++) {
-            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gs5000.cn/gs/chengyu/%d.html", i]]];
-            dispatch_async(self.queue, ^{
+        NSArray *titles = @[@"chengyu", @"minjian", @"shenhua", @"lishirenwu", @"yeshi", @"dangshi"];
+        for (int i = 0; i < 30000; i++) {
+            for (int k = 0; k < titles.count; k++) {
+                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gs5000.cn/gs/%@/%d.html", titles[k], i]]];
+                
                 TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
-                NSArray *eles = [hpple searchWithXPathQuery:@"//div[@class='place']/a[2] | //h2 | //div[@class='content']/table[1]/tr/td"];
+                NSArray *eles = [hpple searchWithXPathQuery:@"//div[@class='place']/a[2] | //div[@class='title']/h2 | //div[@class='content']/table[1]/tr/td"];
                 if (eles.count == 3) {
                     NSString *category, *title, *content;
                     category = ((TFHppleElement *) eles[0]).content;
@@ -39,10 +42,14 @@
                         [[DBManager shareInstance] insert:category title:title content:content];
                     }
                     
+                    break;
+                    
                 }
-            });
+
+            }
+           
             
-            
+            NSLog(@"i : %d", i);
         }
         
         NSLog(@"完成");
