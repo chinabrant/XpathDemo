@@ -25,6 +25,20 @@
     // chengyu minjian  shenhua  huangdi  zhanzheng  wenhuagushi  lishirenwu mingren  yeshi  dangshi
     
     
+    // http://www.gs5000.cn/gs/huangdi/shanggu/23949.html
+    NSArray *huangdi = @[@"shanggu", @"xsz", @"qinchao", @"hanchao",
+                         @"liangjinhuangdi", @"nanbeichao", @"suichao", @"tangchao",
+                         @"wudaishiguo", @"songchao", @"yuanchao", @"mingchao", @"qingchao"];
+    
+    for (int i = 0; i < 26000; i++) {
+        for (int k = 0; k < huangdi.count; k++) {
+            
+        }
+    }
+    
+    // @"//div[@class='place']/a[1] | //div[@class='place']/a[2] | //div[@class='title']/h2 | //div[@class='content']/table[1]/tr/td";
+    
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *titles = @[@"chengyu", @"minjian", @"shenhua", @"lishirenwu", @"yeshi", @"dangshi"];
         for (int i = 0; i < 30000; i++) {
