@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9401B0151E7BC56700FAABC3 /* UIView+BrDot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401B0141E7BC56700FAABC3 /* UIView+BrDot.m */; };
+		9401B0181E7BD80300FAABC3 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401B0171E7BD80300FAABC3 /* OneViewController.m */; };
+		9401B01B1E7BD81A00FAABC3 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401B01A1E7BD81A00FAABC3 /* TwoViewController.m */; };
+		9401B01E1E7BD82B00FAABC3 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401B01D1E7BD82B00FAABC3 /* ThreeViewController.m */; };
+		9401B0211E7BD84100FAABC3 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401B0201E7BD84100FAABC3 /* FourViewController.m */; };
 		940FE47A1E6EBB6900FCE12D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 940FE4791E6EBB6900FCE12D /* main.m */; };
 		940FE47D1E6EBB6900FCE12D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 940FE47C1E6EBB6900FCE12D /* AppDelegate.m */; };
 		940FE4801E6EBB6900FCE12D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 940FE47F1E6EBB6900FCE12D /* ViewController.m */; };
@@ -21,6 +26,16 @@
 		0A7FC515498EA75EA56ACECA /* Pods-XpathDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XpathDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XpathDemo/Pods-XpathDemo.release.xcconfig"; sourceTree = "<group>"; };
 		166CE0668E0EFF0617187433 /* libPods-XpathDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XpathDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9C8F16A8F37F340E7AC2FA /* Pods-XpathDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XpathDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XpathDemo/Pods-XpathDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9401B0131E7BC56700FAABC3 /* UIView+BrDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BrDot.h"; sourceTree = "<group>"; };
+		9401B0141E7BC56700FAABC3 /* UIView+BrDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BrDot.m"; sourceTree = "<group>"; };
+		9401B0161E7BD80300FAABC3 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneViewController.h; sourceTree = "<group>"; };
+		9401B0171E7BD80300FAABC3 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
+		9401B0191E7BD81A00FAABC3 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
+		9401B01A1E7BD81A00FAABC3 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
+		9401B01C1E7BD82B00FAABC3 /* ThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
+		9401B01D1E7BD82B00FAABC3 /* ThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
+		9401B01F1E7BD84100FAABC3 /* FourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
+		9401B0201E7BD84100FAABC3 /* FourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
 		940FE4751E6EBB6900FCE12D /* XpathDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XpathDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		940FE4791E6EBB6900FCE12D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		940FE47B1E6EBB6900FCE12D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,9 +79,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9401B0111E7BC52D00FAABC3 /* BrKit */ = {
+			isa = PBXGroup;
+			children = (
+				9401B0121E7BC54500FAABC3 /* UIKit */,
+			);
+			path = BrKit;
+			sourceTree = "<group>";
+		};
+		9401B0121E7BC54500FAABC3 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				9401B0131E7BC56700FAABC3 /* UIView+BrDot.h */,
+				9401B0141E7BC56700FAABC3 /* UIView+BrDot.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		940FE46C1E6EBB6900FCE12D = {
 			isa = PBXGroup;
 			children = (
+				9401B0111E7BC52D00FAABC3 /* BrKit */,
 				940FE4771E6EBB6900FCE12D /* XpathDemo */,
 				940FE4761E6EBB6900FCE12D /* Products */,
 				6D82138300155B52CC03C0AA /* Pods */,
@@ -96,6 +129,14 @@
 				940FE4781E6EBB6900FCE12D /* Supporting Files */,
 				94F10A151E6FCF6300D93DA1 /* DBManager.h */,
 				94F10A161E6FCF6400D93DA1 /* DBManager.m */,
+				9401B0161E7BD80300FAABC3 /* OneViewController.h */,
+				9401B0171E7BD80300FAABC3 /* OneViewController.m */,
+				9401B0191E7BD81A00FAABC3 /* TwoViewController.h */,
+				9401B01A1E7BD81A00FAABC3 /* TwoViewController.m */,
+				9401B01C1E7BD82B00FAABC3 /* ThreeViewController.h */,
+				9401B01D1E7BD82B00FAABC3 /* ThreeViewController.m */,
+				9401B01F1E7BD84100FAABC3 /* FourViewController.h */,
+				9401B0201E7BD84100FAABC3 /* FourViewController.m */,
 			);
 			path = XpathDemo;
 			sourceTree = "<group>";
@@ -231,10 +272,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9401B01B1E7BD81A00FAABC3 /* TwoViewController.m in Sources */,
 				940FE4801E6EBB6900FCE12D /* ViewController.m in Sources */,
 				940FE47D1E6EBB6900FCE12D /* AppDelegate.m in Sources */,
+				9401B0211E7BD84100FAABC3 /* FourViewController.m in Sources */,
 				940FE47A1E6EBB6900FCE12D /* main.m in Sources */,
+				9401B0181E7BD80300FAABC3 /* OneViewController.m in Sources */,
+				9401B0151E7BC56700FAABC3 /* UIView+BrDot.m in Sources */,
 				94F10A171E6FCF6400D93DA1 /* DBManager.m in Sources */,
+				9401B01E1E7BD82B00FAABC3 /* ThreeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import <TFHpple.h>
 #import "DBManager.h"
 
+
 @interface ViewController ()
 
 @property (nonatomic) dispatch_queue_t queue;
@@ -26,19 +27,44 @@
     
     
     // http://www.gs5000.cn/gs/huangdi/shanggu/23949.html
-    NSArray *huangdi = @[@"shanggu", @"xsz", @"qinchao", @"hanchao",
-                         @"liangjinhuangdi", @"nanbeichao", @"suichao", @"tangchao",
-                         @"wudaishiguo", @"songchao", @"yuanchao", @"mingchao", @"qingchao"];
     
-    for (int i = 0; i < 26000; i++) {
-        for (int k = 0; k < huangdi.count; k++) {
-            
+    /*
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSArray *huangdi = @[@"shanggu", @"xsz", @"qinchao", @"hanchao",
+                             @"liangjinhuangdi", @"nanbeichao", @"suichao", @"tangchao",
+                             @"wudaishiguo", @"songchao", @"yuanchao", @"mingchao", @"qingchao"];
+        
+        for (int i = 0; i < 24850; i++) {
+            for (int k = 0; k < huangdi.count; k++) {
+                
+                dispatch_async(self.queue, ^{
+                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gs5000.cn/gs/huangdi/%@/%d.html", huangdi[k], i]]];
+                    
+                    TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
+                    NSArray *eles = [hpple searchWithXPathQuery:@"//div[@class='place']/a[3] | //div[@class='title']/h2 | //div[@class='content']/table[1]/tr/td"];
+                    if (eles.count == 3) {
+                        NSString *category, *title, *content;
+                        category = ((TFHppleElement *) eles[0]).content;
+                        title = ((TFHppleElement *) eles[1]).content;
+                        content = ((TFHppleElement *) eles[2]).content;
+                        if (title.length > 0 && content.length > 0) {
+                            [[DBManager shareInstance] insert:category title:title content:content];
+                        }
+                        
+                        NSLog(@"title: %@", title);
+                        
+                    }
+                });
+                
+                
+            }
         }
-    }
+    });
+     */
     
     // @"//div[@class='place']/a[1] | //div[@class='place']/a[2] | //div[@class='title']/h2 | //div[@class='content']/table[1]/tr/td";
     
-    
+    /*
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *titles = @[@"chengyu", @"minjian", @"shenhua", @"lishirenwu", @"yeshi", @"dangshi"];
         for (int i = 0; i < 30000; i++) {
@@ -70,6 +96,7 @@
         
         
     });
+     */
 }
 
 

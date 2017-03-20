@@ -32,6 +32,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        
+        self.insertQueue = dispatch_queue_create("insert", DISPATCH_QUEUE_SERIAL);    // 同步queue
+        
         if ([self.db open]) {
             [self creatTable];
         }
@@ -50,21 +53,25 @@
 }
 
 - (void)insert:(NSString *)category title:(NSString *)title content:(NSString *)content {
-    NSString *sql = [NSString stringWithFormat:@"insert into history_story (category, title, content) values (?,?,?)"];
-    BOOL success = [self.db executeUpdate:sql, category, title, content];
-    if (success) {
-//        NSLog(@"插入成功");
-    }
-    else {
-        NSLog(@"插入失败");
-    }
+    
+    dispatch_async(_insertQueue, ^{
+        NSString *sql = [NSString stringWithFormat:@"insert into history_story (category, title, content) values (?,?,?)"];
+        BOOL success = [self.db executeUpdate:sql, category, title, content];
+        if (success) {
+            //        NSLog(@"插入成功");
+        }
+        else {
+            NSLog(@"插入失败");
+        }
+    });
+    
 }
 
 
 - (FMDatabase *)db {
     if (!_db) {
         NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-        path = [path stringByAppendingString:@"/story_all.db"];
+        path = [path stringByAppendingString:@"/huangdi.db"];
         _db = [FMDatabase databaseWithPath:path];
         NSLog(@"path: %@", path);
     }
