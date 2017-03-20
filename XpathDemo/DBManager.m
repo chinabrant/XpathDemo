@@ -48,15 +48,15 @@
 }
 
 - (void)creatTable {
-    NSString *create = @"create table if not exists history_story(sid integer primary key autoincrement,title text,content text,category text)";
+    NSString *create = @"create table if not exists history_story(sid integer primary key autoincrement,title text,content text,category text,wid integer,parentCategory text)";
     [self.db executeUpdate:create];
 }
 
-- (void)insert:(NSString *)category title:(NSString *)title content:(NSString *)content {
+- (void)insert:(NSString *)category title:(NSString *)title content:(NSString *)content wid:(NSInteger)wid parentCategory:(NSString *)parent {
     
     dispatch_async(_insertQueue, ^{
-        NSString *sql = [NSString stringWithFormat:@"insert into history_story (category, title, content) values (?,?,?)"];
-        BOOL success = [self.db executeUpdate:sql, category, title, content];
+        NSString *sql = [NSString stringWithFormat:@"insert into history_story (category, title, content, wid, parentCategory) values (?,?,?,?,?)"];
+        BOOL success = [self.db executeUpdate:sql, category, title, content, @(wid), parent];
         if (success) {
             //        NSLog(@"插入成功");
         }
@@ -71,7 +71,7 @@
 - (FMDatabase *)db {
     if (!_db) {
         NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-        path = [path stringByAppendingString:@"/huangdi.db"];
+        path = [path stringByAppendingString:@"/all.db"];
         _db = [FMDatabase databaseWithPath:path];
         NSLog(@"path: %@", path);
     }

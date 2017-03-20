@@ -12,7 +12,7 @@
 
 + (DBManager *)shareInstance;
 
-- (void)insert:(NSString *)category title:(NSString *)title content:(NSString *)content;
+- (void)insert:(NSString *)category title:(NSString *)title content:(NSString *)content wid:(NSInteger)wid parentCategory:(NSString *)parent;
 
 - (void)close;
 
