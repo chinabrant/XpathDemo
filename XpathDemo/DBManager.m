@@ -71,7 +71,7 @@
 - (FMDatabase *)db {
     if (!_db) {
         NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-        path = [path stringByAppendingString:@"/all.db"];
+        path = [path stringByAppendingString:@"/other.db"];
         _db = [FMDatabase databaseWithPath:path];
         NSLog(@"path: %@", path);
     }

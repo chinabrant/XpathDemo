@@ -18,6 +18,8 @@
  皇帝 count: 861
  一级 count: 3414
  
+ total: 8844
+ 
  */
 @interface ViewController ()
 
@@ -35,6 +37,7 @@
     
     // chengyu minjian  shenhua  huangdi  zhanzheng  wenhuagushi  lishirenwu mingren  yeshi  dangshi
     
+    /*
     // 名人故事
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
@@ -656,40 +659,144 @@
         }
     });
     
-    // 文化
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        
-    });
+    */
     
-    // 战争
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        
-    });
+//    // 文化
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        
+//        NSMutableArray *pathList = [[NSMutableArray alloc] init];
+//        
+//        // 中国野史 31页
+//        for (int i = 1; i < 32; i++) {
+//            NSString *urlString = [NSString stringWithFormat:@"http://www.gs5000.cn/gs/yeshi/list_82_%d.html", i];
+//            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+//            TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
+//            NSArray *eles = [hpple searchWithXPathQuery:@"//a[@class='preview']"];
+//            for (TFHppleElement *ele in eles) {
+//                NSString *path = [ele objectForKey:@"href"];
+//                [pathList addObject:path];
+//            }
+//        }
+//        
+//        // 党史故事 57页
+//        for (int i = 1; i < 58; i++) {
+//            NSString *urlString = [NSString stringWithFormat:@"http://www.gs5000.cn/gs/dangshi/list_124_%d.html", i];
+//            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+//            TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
+//            NSArray *eles = [hpple searchWithXPathQuery:@"//a[@class='preview']"];
+//            for (TFHppleElement *ele in eles) {
+//                NSString *path = [ele objectForKey:@"href"];
+//                [pathList addObject:path];
+//            }
+//        }
+//        
+//        NSLog(@"一级 count: %lu", (unsigned long)pathList.count);
+//        
+//        for (NSString *path in pathList) {
+//            
+//            //                dispatch_async(self.queue, ^{
+//            
+//            [self getDataWithPath:path];
+//            //                });
+//            
+//        }
+//        
+//    });
     
-//    http://www.gs5000.cn/gs/huangdi/mingchao/list_27_11.html
-    // 皇帝
+    [self checkNew];
+}
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        
-    });
+// 读取最新的数据
+- (void)checkNew {
+    NSArray *pageArray = @[@"http://www.gs5000.cn/gs/mingren/mrmy",
+                           @"http://www.gs5000.cn/gs/mingren/mrds",
+                           @"http://www.gs5000.cn/gs/mingren/xdmr",
+                           @"http://www.gs5000.cn/gs/mingren/sjmr",
+                           @"http://www.gs5000.cn/gs/mingren/fuhao",
+                           @"http://www.gs5000.cn/gs/mingren/mrym",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/jieri",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/duilian",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/changshi",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/diangu",
+                           @"http://www.gs5000.cn/gs/wenhuamr",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/gudaifanfuchangliangushi",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/kexuejishu",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/jinji",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/cnaq",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/tclr",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/shiersx",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/rzc",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/szbf",
+                           @"http://www.gs5000.cn/gs/wenhuagushi/ws",
+                           @"http://www.gs5000.cn/gs/zhanzheng/gd",
+                           @"http://www.gs5000.cn/gs/zhanzheng/jxd",
+                           @"http://www.gs5000.cn/gs/zhanzheng/sjzz",
+                           @"http://www.gs5000.cn/gs/zhanzheng/kr",
+                           @"http://www.gs5000.cn/gs/zhanzheng/kmyc",
+                           @"http://www.gs5000.cn/gs/zhanzheng/zwfj",
+                           @"http://www.gs5000.cn/gs/huangdi/shanggu",
+                           @"http://www.gs5000.cn/gs/huangdi/mingchao",
+                           @"http://www.gs5000.cn/gs/huangdi/qinchao",
+                           @"http://www.gs5000.cn/gs/huangdi/hanchao",
+                           @"http://www.gs5000.cn/gs/huangdi/liangjinhuangdi",
+                           @"http://www.gs5000.cn/gs/huangdi/nanbeichao/list_21_1.html",
+                           @"http://www.gs5000.cn/gs/huangdi/suichao/list_22_1.html",
+                           @"http://www.gs5000.cn/gs/huangdi/tangchao/list_23_1.html",
+                           @"http://www.gs5000.cn/gs/huangdi/wudaishiguo/list_24_1.html",
+                           @"http://www.gs5000.cn/gs/huangdi/songchao/list_25_1.html",
+                           @"http://www.gs5000.cn/gs/huangdi/yuanchao/list_26_1.html",
+                           @"http://www.gs5000.cn/gs/huangdi/mingchao/list_27_1.html",
+                           @"http://www.gs5000.cn/gs/huangdi/qingchao/list_28_1.html",
+                           @"http://www.gs5000.cn/gs/chengyu/list_5_1.html",
+                           @"http://www.gs5000.cn/gs/minjian/list_6_1.html",
+                           @"http://www.gs5000.cn/gs/shenhua/list_32_1.html",
+                           @"http://www.gs5000.cn/gs/lishirenwu/list_116_1.html",
+                           @"http://www.gs5000.cn/gs/yeshi/list_82_1.html",
+                           @"http://www.gs5000.cn/gs/dangshi/list_124_1.html"];
     
-    // 一级
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        
-    });
+    NSLog(@"array count: %lu", (unsigned long)pageArray.count);
     
+    NSMutableArray *pathList = [[NSMutableArray alloc] init];
     
+    for (NSString *urlString in pageArray) {
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+        data = [self utf8EncodeData:data];
+        TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
+        NSArray *eles = [hpple searchWithXPathQuery:@"//a[@class='preview']"];
+        for (TFHppleElement *ele in eles) {
+            NSString *path = [ele objectForKey:@"href"];
+            [pathList addObject:path];
+        }
+    }
+    
+    for (NSString *path in pathList) {
+        NSInteger wid = [self getWid:path];
+        // 24854
+        if (wid > 24854) {
+            NSLog(@"path : %@", path);
+            [self getDataWithPath2:path];
+        }
+    }
+    
+}
 
+// 对gb2312网页进行utf-8转换
+- (NSData *)utf8EncodeData:(NSData *)htmlData {
+    //转换成GBK编码
+    NSStringEncoding gbEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    
+//    NSData *htmlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"可以是非utf-8的网页"]];
+    NSString *htmlStr = [[NSString alloc] initWithData:htmlData encoding:gbEncoding];
+    NSString *utf8HtmlStr = [htmlStr stringByReplacingOccurrencesOfString:@"gb2312" withString:@"utf-8"];
+    NSData *htmlDataUTF8 = [utf8HtmlStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    return htmlDataUTF8;
 }
 
 // 有二级分类的
 - (void)getDataWithPath2:(NSString *)path {
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gs5000.cn%@", path]]];
-    
+    data = [self utf8EncodeData:data];
     TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
     NSArray *eles = [hpple searchWithXPathQuery:@"//div[@class='place']/a[2] | //div[@class='place']/a[3] | //div[@class='title']/h2 | //div[@class='content']/table[1]/tr/td"];
     if (eles.count == 4) {
@@ -709,7 +816,7 @@
 // 只有一级分类的
 - (void)getDataWithPath:(NSString *)path {
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gs5000.cn%@", path]]];
-
+    data = [self utf8EncodeData:data];
     TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
     NSArray *eles = [hpple searchWithXPathQuery:@"//div[@class='place']/a[2] | //div[@class='title']/h2 | //div[@class='content']/table[1]/tr/td"];
     if (eles.count == 3) {

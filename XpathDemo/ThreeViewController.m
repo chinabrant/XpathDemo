@@ -18,6 +18,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"three";
+    
+    NSLog(@"%@", self.navigationController.viewControllers);
+}
+
+// 如果navigation controller的堆栈里面已经有指定的viewController的个数大于等于2，则保留最后一个，其它的全部移除
++ (void)removeViewController:(Class)cls navigationController:(UINavigationController *)nav {
+    NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:nav.viewControllers];
+    
+    NSMutableArray *clsList = [[NSMutableArray alloc] init];
+    for (UIViewController *vc in arr) {
+        
+        if ([vc isKindOfClass:cls]) {
+            
+            [clsList addObject:vc];
+        }
+    }
+    
+    if (clsList.count <= 1) {
+        return;
+    }
+    
+    [clsList removeLastObject];
+    [arr removeObjectsInArray:clsList];
+    nav.viewControllers = arr;
 }
 
 - (void)didReceiveMemoryWarning {
